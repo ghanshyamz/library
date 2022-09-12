@@ -1,2 +1,4 @@
 library/TODO
 python_env
+library/library/__pycache__/*
+library/db.sqlite3

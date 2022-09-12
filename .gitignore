@@ -1,4 +1,7 @@
 library/TODO
 python_env
 library/library/__pycache__/*
+library/books/__pycache__/*
+library/lib_admin/__pycache__/*
 library/db.sqlite3
+library/books/migrations/__pycache__/*

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    {% if not user.is_authenticated %}
+    <h1>Login as Library Admin</h1>
+    <form action="{% url 'login' %}" method='post'>{% csrf_token %}
+        {{ login_form.as_p }}
+        <input type="submit" value="Login">
+        <h2>{{ message }}</h2>
+    </form>
+    {% endif %}
+    <h3><a href="{% url 'register' %}">Go to Register Page</a></h3>
+
+    <h3><a href="{% url 'home' %}">Go to Home Page</a></h3>    
+
+{% endblock content %}

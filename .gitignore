@@ -5,3 +5,4 @@ library/books/__pycache__/*
 library/lib_admin/__pycache__/*
 library/db.sqlite3
 library/books/migrations/__pycache__/*
+library/lib_admin/migrations/__pycache__/*

@@ -7,6 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+    {% if user.is_authenticated %}
+        <span><h2>{{ user.first_name }}</h2></span>
+        <span><a href="{% url 'logout' %}">Logout</a></span>&nbsp;&nbsp;&nbsp;
+    {% else %}
+        <span><a href="{% url 'login' %}">Login</a></span>
+    {% endif %}
     {% block content %}
 
     {% endblock  %}

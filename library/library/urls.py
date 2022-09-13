@@ -16,8 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from books.views import *
+from lib_admin.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('',home, name='home'),
+    path('',home, name='home'),
+    path('register/', register, name='register'),
+    path('login/', login, name='login'),
+    path('logout/',logout, name='logout'),
 ]

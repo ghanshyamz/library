@@ -20,8 +20,13 @@ from lib_admin.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('',home, name='home'),
     path('register/', register, name='register'),
     path('login/', login, name='login'),
     path('logout/',logout, name='logout'),
+
+    path('addBook/',addBook, name='addBook'),
+    path('updateBook/<int:id>',updateBook, name='updateBook'),
+    path('deleteBook/<int:id>',deleteBook, name='deleteBook'),
 ]

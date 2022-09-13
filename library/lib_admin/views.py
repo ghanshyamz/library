@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from .form import UserLoginForm, UserRegisterForm
 from django.contrib import auth
+from books.models import Books
 
 # Create your views here.
 def home(request):
-    return render(request, 'books.html')
+    books = Books.objects.all()
+    return render(request, 'books.html', {'books':books})
 
 def register(request):
     if request.method == 'POST':

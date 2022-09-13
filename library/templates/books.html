@@ -1,30 +1,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <div class="container">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Auther</th>
-                <th>Update</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td><a href="+" class="btn-info">Update</a></td>
-                <td><a href="+" class="btn-danger">Delete</a></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <div class="d-grid">
-        {% for book in books %}
-        <div></div>
-        {% endfor %}
+        <table class="table">
+            <thead>
+                <tr class="row">
+                    <th class="col-4">Name</th>
+                    <th class="col-4">Author</th>
+                    <th class="col-2">Update</th>
+                    <th class="col-2">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                <tr class="row">
+                    <td class="col-4">{{ book.name }}</td>
+                    <td class="col-4">{{ book.author }}</td>
+                    <td class="col-2"><a href="{% url 'updateBook' id=book.id %}" class="btn btn-info">Update</a></td>
+                    <td class="col-2"><a href="{% url 'deleteBook' id=book.id %}" class="btn btn-danger">Delete</a></td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+            
+        </table>
+        <div class="text-center">
+            <a href="{% url 'addBook' %}" class=" btn btn-primary">Add a book</a>
+        </div>
+        
     </div>
-    
 {% endblock content %}

@@ -2,8 +2,8 @@ from django.db import models
 
 
 class Books(models.Model):
-    name = models.CharField(max_length=30)
-    auther = models.CharField(max_length=30)
+    name = models.CharField(max_length=255)
+    author = models.CharField(max_length=50)
     
 
     def __str__(self):

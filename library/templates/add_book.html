@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-    <h1>Create a Book record</h1>
-
-    <form action="{% url 'addBook' %}" method='post'>{% csrf_token %}
-        {{ bookForm.as_p }}
-        <input type="submit" value="Add">
-        
-    </form>
+    <div class="container">
+        <h1 class="text-center">Create a Book record</h1>
+        <div class="card m-2 px-5 py-3">
+            <form class="form" action="{% url 'addBook' %}" method='post'>{% csrf_token %}
+                {{ bookForm.as_p }}
+                <input class="btn btn-primary" type="submit" value="Add">
+                
+            </form>
+        </div>
+    </div>
 
 
 {% endblock content %}

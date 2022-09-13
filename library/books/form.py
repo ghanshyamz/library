@@ -4,8 +4,8 @@ from .models import Books
 from django.contrib.auth.forms import UserCreationForm
 
 class BookForm(forms.ModelForm):
-	name = forms.CharField(required=True)
-	author = forms.CharField(required=True)
+	name = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
+	author = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
 	
 	class Meta:
 		model = Books

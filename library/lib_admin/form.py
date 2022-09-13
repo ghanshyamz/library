@@ -4,9 +4,11 @@ from .models import LibAdmin
 from django.contrib.auth.forms import UserCreationForm
 
 class UserRegisterForm(UserCreationForm):
-	firstname = forms.CharField(required=True)
-	lastname = forms.CharField(required=True)
-	email = forms.EmailField(required=True)
+	firstname = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control form-control-sm'}))
+	lastname = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control form-control-sm'}))
+	email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'class': 'form-control form-control-sm'}))
+	password1 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class': 'form-control form-control-sm'}))
+	password2 = forms.CharField(label='Confirm Password', widget=forms.PasswordInput(attrs={'class': 'form-control form-control-sm'}))
 	class Meta:
 		model = LibAdmin
 		fields = ['firstname','lastname','email', 'password1', 'password2']
@@ -22,8 +24,8 @@ class UserRegisterForm(UserCreationForm):
 		return user
 
 class UserLoginForm(forms.ModelForm):
-    email = forms.EmailField(widget=forms.EmailInput)
-    password = forms.CharField(widget=forms.PasswordInput)
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     class Meta:
         model = LibAdmin
         fields = ['email','password']

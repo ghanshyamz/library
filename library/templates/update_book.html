@@ -2,13 +2,15 @@
 
 {% block content %}
 
-    <h1>Create a Book record</h1>
-
-    <form action="{% url 'updateBook' id=id %}" method='post'>{% csrf_token %}
-        {{ bookForm.as_p }}
-        <input type="submit" value="Update Book">
-        
-    </form>
-
+    <div class="container">
+        <h1 class="text-center">Update a Book record</h1>
+        <div class="card m-2 px-5 py-3">
+            <form action="{% url 'updateBook' id=id %}" method='post'>{% csrf_token %}
+                {{ bookForm.as_p }}
+                <input class="btn btn-info" type="submit" value="Update Book">
+                
+            </form>
+        </div>
+    </div>
 
 {% endblock content %}

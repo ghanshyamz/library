@@ -10,12 +10,23 @@
     <title>Document</title>
 </head>
 <body>
-    {% if user.is_authenticated %}
-        <span><h2>{{ user.first_name }}</h2></span>
-        <span><a href="{% url 'logout' %}">Logout</a></span>&nbsp;&nbsp;&nbsp;
-    {% else %}
-        <span class="mb-5"><a href="{% url 'login' %}">Login</a></span>
-    {% endif %}
+    <nav class="navbar navbar-dark bg-warning">
+        <div class="container-fluid">
+            <a class="navbar-brand btn" href="{% url 'home' %}">Library</a>
+            {% if user.is_authenticated %}
+                <span><h2>Welcome, {{ user.first_name }}</h2></span>
+                <a class="btn btn-danger" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <div>
+                    <a class="btn btn-success " href="{% url 'login' %}">Login</a> OR
+                    <a class="btn btn-success" href="{% url 'register' %}">Signup</a>
+                </div>
+            {% endif %}
+        </div>
+    </nav>
+
+
+    
     {% block content %}
 
     {% endblock  %}

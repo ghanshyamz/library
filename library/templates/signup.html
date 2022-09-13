@@ -2,14 +2,18 @@
 
 {% block content %}
 
-    <h1>Signup as Library Admin</h1>
-
-    <form action="{% url 'register' %}" method='post'>{% csrf_token %}
-        {{ registration_form.as_p }}
-        <input type="submit" value="Register">
-        <h2>{{ message }}</h2>
-    </form>
-
-    <h3><a href="{% url 'login' %}">Go to login Page</a></h3>
-
+    {% if not user.is_authenticated %}
+        <div class="container">
+            <div class="card m-2 px-5 py-1">
+                <h1 class="text-center">Signup as Library Admin</h1>
+                <form action="{% url 'register' %}" method='post'>{% csrf_token %}
+                    {{ registration_form.as_p }}
+                    <input class="btn btn-info" type="submit" value="Register">
+                    <h2>{{ message }}</h2>
+                </form>
+            </div>
+        </div>
+        {% comment %} <h3><a href="{% url 'login' %}">Go to login Page</a></h3> {% endcomment %}
+    {% endif %}
+    {% comment %} <h3><a href="{% url 'home' %}">Go to Home Page</a></h3> {% endcomment %}
 {% endblock content %}
